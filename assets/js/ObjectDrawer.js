@@ -29,7 +29,42 @@ class ObjectDrawer {
         this.ctx.fillStyle = "rgb(0, 0, 0)";
     }
 
-    drawSquare(x, y, width, height) {
-        
+    drawSquare(x, y, width, height, strokeColor, fillColor) {
+
+        x *= this.unity
+        y *= this.unity
+        width *= this.unity
+        height *= this.unity
+
+        this.ctx.strokeStyle = strokeColor; // Cor da borda
+        this.ctx.fillStyle = fillColor; // Cor do preenchimento
+        this.ctx.lineWidth = 2; // Largura da borda
+
+        this.ctx.beginPath();
+        this.ctx.rect(x, y, width, -height);
+        this.ctx.stroke(); // Desenha a borda
+        this.ctx.fill(); // Preenche o retângulo
+        this.ctx.closePath();
+    }
+
+    drawAreaUnderFunction(under_limit, upper_limit, num_divisions, equation) {
+        var delta_Xi = (upper_limit - under_limit) / num_divisions
+
+        for(var rep = 0; rep < num_divisions; rep++) {
+            // calcular x inicial do retângulo
+            var X_rect = under_limit + rep * delta_Xi
+
+            // calcular ponto médio do x do retângulo
+            var Ci = X_rect + delta_Xi / 2
+
+            // calcular altura do retângulo
+            var height_rect = eval(equation.replace(/x/ig, Ci))
+
+            if (height_rect) {
+                this.drawSquare(X_rect, 0, delta_Xi, height_rect, "rgb(255, 0, 0)", "rgba(255, 0, 0, 0.5)")
+            }
+
+            // desenhar retângulo
+        }
     }
 }
