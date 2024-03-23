@@ -21,10 +21,37 @@ class Plane {
     
     
 
-    plotEquation(equation, color) {
+    plotEquationByDots(equation, color) {
         for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=0.01) {
             this.obj_drawer.drawDot(x, eval(equation.replace(/x/ig, x)), 1, color)
         }
+    }
+
+    plotEquationByLine(equation, color) {
+        var start_x = -this.qtd_dots
+        var start_y = -1 * eval(equation.replace(/x/ig, start_x)) / this.unity;
+
+        console.log("inicio: ", start_x, start_y)
+
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeStyle = color;
+        this.ctx.moveTo(start_x, start_y);
+    
+        var pos_x;
+        var pos_y;
+    
+        // Avalia a função para todos os valores de x no intervalo desejado
+        for (var x = -this.qtd_dots; x <= this.qtd_dots; x += 0.01) {
+            pos_x = x * this.unity;
+            pos_y = -1 * eval(equation.replace(/x/ig, pos_x));
+            console.log(pos_x, pos_y)
+            this.ctx.lineTo(pos_x, pos_y);
+            this.ctx.moveTo(pos_x, pos_y)
+        }
+    
+        this.ctx.stroke();
+        this.ctx.closePath();
     }
     
     drawPlane() {
@@ -70,7 +97,7 @@ class Plane {
         // this.obj_drawer.drawSquare(3.5, 0, 0.5, 0.5, "rgb(255, 0, 0)", "rgba(255, 0, 0, 0.5)")
         // this.obj_drawer.drawSquare(4, 0, 0.5, 0.3, "rgb(255, 0, 0)", "rgba(255, 0, 0, 0.5)")
 
-        var equation = "1 / x"
+        var equation = "(x) ** 2"
         equation = formatEquations(equation)
         console.log(equation)
 
@@ -84,7 +111,7 @@ class Plane {
 
 
         this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation)
-        this.plotEquation(equation, 'blue')
+        this.plotEquationByLine(equation, 'blue')
     }
 
 }
