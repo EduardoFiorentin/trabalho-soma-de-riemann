@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/base_canvas.css">
+    <link rel="stylesheet" href="assets/css/graphics.css">
+    <link rel="stylesheet" href="assets/css/interface.css">
     <script type="application/javascript" src="assets/js/ObjectDrawer.js"></script>
     <script type="application/javascript" src="assets/js/formatEquations.js"></script>
     <script type="application/javascript" src="assets/js/canvas.js"></script>
@@ -12,7 +14,50 @@
 </head>
 <body onload="start()">
     <!-- <h1>Hello, world</h1> -->
-    <canvas width="500px" height="500px" class="canvas" id="canvas"></canvas>
+    <div class="program">
+
+        <div class="graphics">
+            <h2 class="graphics__title">Gráfico</h2>
+            <canvas width="500px" height="500px" class="graphics__canvas" id="canvas"></canvas>
+        </div>
+        
+        
+        <div class="interface">
+            <h2 class="interface__title">Equação</h1>
+
+            <div class="equation">
+                <div class="equation__container">
+                    <p class="equation_text">Equação: </p>
+                    <input type="text" name="" id="equation" class="equation__input" value="sen(x)">
+                </div>
+                <div class="equation__container">
+                    <p class="equation_text">Limite Inferior: </p>
+                    <input type="number" name="" id="under_limit" class="equation__input" value="-3">
+                </div>
+                <div class="equation__container">
+                    <p class="equation_text">Limite Superior: </p>
+                    <input type="number" name="" id="upper_limit" class="equation__input" value="5">
+                </div>
+                <div class="equation__container">
+                    <p class="equation_text">Número de divisões </p>
+                    <input type="number" name="" id="divisions" class="equation__input" value="10">
+                </div>
+                <button class="equation__button" onclick="draw()">Calcular</button>
+            </div>
+
+            <div class="results">
+                <h2 class="results__title">Resultados</h2>
+                <div class="result__container">
+                    <p class="result">Resultado da soma: </p>
+                    <p class="input__sum-result">133,55</p>
+                </div>
+                <div class="result__container">
+                    <p class="result">Área real: </p>
+                    <p class="input__sum-result">133,55</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

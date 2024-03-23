@@ -67,4 +67,33 @@ class ObjectDrawer {
             // desenhar retângulo
         }
     }
+
+    drawLimits(under_limit, upper_limit, equation) {
+        let under_limit_y = -1 * eval(equation.replace(/x/ig, under_limit)) * this.unity
+        let under_limit_x = under_limit * this.unity
+        
+        let upper_limit_y = -1 * eval(equation.replace(/x/ig, upper_limit)) * this.unity
+        let upper_limit_x = upper_limit * this.unity
+
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeStyle = "black";
+
+        // desenhar pontilhado limite inferior
+        this.ctx.moveTo(under_limit_x, 0);
+        this.ctx.lineTo(under_limit_x, under_limit_y)
+
+        // desenhar pontilhado limite superior
+        this.ctx.moveTo(upper_limit_x, 0);
+        this.ctx.lineTo(upper_limit_x, upper_limit_y)
+
+
+        // desenhar linhas 
+        this.ctx.stroke();
+        this.ctx.closePath();
+
+        // desenhar ponto nos limites 
+        this.drawDot(under_limit_x / this.unity, -under_limit_y / this.unity, 5, 'black')
+        this.drawDot(upper_limit_x / this.unity, -upper_limit_y / this.unity, 5, 'black')
+    }
 }

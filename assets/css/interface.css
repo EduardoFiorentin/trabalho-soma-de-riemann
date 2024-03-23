@@ -1,0 +1,58 @@
+.program {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.interface {
+    width: 50%;
+}
+
+.interface__title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 3rem;
+}
+
+.equation {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.equation__input {
+    width: 250px;
+    font-size: 1.5rem;
+}
+.equation__container {
+    margin-bottom: 10px;
+}
+
+.equation__button {
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.results {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+.results__title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+
+.result__container {
+    display: flex;
+    margin-left: 30px;
+    margin-top: 20px;
+}

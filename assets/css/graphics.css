@@ -1,0 +1,22 @@
+html {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.graphics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 50%; */
+}
+
+.graphics__title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 3rem;
+}
+
+.graphics__canvas {
+    border: 1px solid black;
+}
