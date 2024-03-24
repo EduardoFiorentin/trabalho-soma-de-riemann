@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/graphics.css">
     <link rel="stylesheet" href="assets/css/interface.css">
     <script type="application/javascript" src="assets/js/ObjectDrawer.js"></script>
+    <script type="application/javascript" src="assets/js/AreaCalculator.js"></script>
     <script type="application/javascript" src="assets/js/formatEquations.js"></script>
     <script type="application/javascript" src="assets/js/canvas.js"></script>
     <title>Soma de Riemann</title>
@@ -18,7 +19,7 @@
 
         <div class="graphics">
             <h2 class="graphics__title">Gráfico</h2>
-            <canvas width="500px" height="500px" class="graphics__canvas" id="canvas"></canvas>
+            <canvas width="600px" height="600px" class="graphics__canvas" id="canvas"></canvas>
         </div>
         
         
@@ -28,33 +29,33 @@
             <div class="equation">
                 <div class="equation__container">
                     <p class="equation_text">Equação: </p>
-                    <input type="text" name="" id="equation" class="equation__input" value="sen(x)">
+                    <input type="text" name="" id="equation" class="equation__input" value="">
                 </div>
                 <div class="equation__container">
                     <p class="equation_text">Limite Inferior: </p>
-                    <input type="number" name="" id="under_limit" class="equation__input" value="-3">
+                    <input type="number" name="" id="under_limit" class="equation__input" value="1">
                 </div>
                 <div class="equation__container">
                     <p class="equation_text">Limite Superior: </p>
-                    <input type="number" name="" id="upper_limit" class="equation__input" value="5">
+                    <input type="number" name="" id="upper_limit" class="equation__input" value="3">
                 </div>
                 <div class="equation__container">
                     <p class="equation_text">Número de divisões </p>
-                    <input type="number" name="" id="divisions" class="equation__input" value="10">
+                    <input type="number" name="" id="divisions" class="equation__input" value="5">
                 </div>
-                <button class="equation__button" onclick="draw()">Calcular</button>
+                <button class="equation__button" onclick="draw()" id="calculate__button">Calcular</button>
             </div>
 
             <div class="results">
                 <h2 class="results__title">Resultados</h2>
                 <div class="result__container">
-                    <p class="result">Resultado da soma: </p>
-                    <p class="input__sum-result">133,55</p>
+                    <p class="result">Soma de Riemann: </p>
+                    <p class="input__sum-result" id="sum_response"></p>
                 </div>
-                <div class="result__container">
+                <!-- <div class="result__container">
                     <p class="result">Área real: </p>
-                    <p class="input__sum-result">133,55</p>
-                </div>
+                    <p class="input__sum-result" id="integral_response"></p>
+                </div> -->
             </div>
         </div>
     </div>

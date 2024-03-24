@@ -7,9 +7,13 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* width: 50%; */
+    align-items: center;
+    width: 50%;
 }
-
+.graphics__canvas {
+    width: 600px;
+    height: 600px;
+}
 .graphics__title {
     text-align: center;
     margin-top: 30px;

@@ -10,6 +10,11 @@ function draw() {
     let upper_limit = document.getElementById("upper_limit").value
     let divisions = document.getElementById("divisions").value
 
+    let sum_response_path = document.getElementById('sum_response')
+    let integral_response_path = document.getElementById('integral_response')
+
+    let calculate_button = document.getElementById('calculate__button')
+
     // validação e tratamentos 
     if (equation && under_limit && upper_limit && divisions) {
         // equation = equation.replace(/x/gi, "(x)")
@@ -17,14 +22,48 @@ function draw() {
         upper_limit = parseFloat(upper_limit)
         divisions = parseInt(divisions)
 
+        // limitar numero de divisões
+        if (divisions > 500) {
+            alert("O máximo são 500 divisões!")
+            return;
+        }
+
+        // limite superior sempre maior que o inferior
+        if (upper_limit < under_limit) {
+            alert("O limite superior deve ser menor do que o limite inferior!")
+            return;
+        }
+
+        equation = formatEquations(equation)
+        
+        // verifica a validade da equação 
+        try {
+            !eval(equation.replace(/x/ig, 1))
+        } catch (err) {
+            alert("Equação inválida!")
+            return;
+        }
+
         console.log(equation, (under_limit), (upper_limit), divisions)
 
-    } else alert("Informações faltando!")
+    } else {
+        alert("Informações faltando!") 
+        return;
+    }
 
     // desenho
     const graphic = new Plane
+    const calc = new AreaCalculator
+
     graphic.draw(equation, upper_limit, under_limit, divisions)
-    
+    let riemann_sum = calc.calculateRiemannSum(under_limit, upper_limit, divisions, equation)
+    // let real_area = calc.calculateRealArea(under_limit, upper_limit, equation)
+
+    //imprimir resultados 
+    console.log(riemann_sum)
+    sum_response_path.innerText = riemann_sum ? riemann_sum : " Não calculado"
+    // integral_response_path.innerText = real_area ? real_area : " Não calculado"
+
 }
 
 
@@ -33,7 +72,7 @@ class Plane {
         this.canvas = document.getElementById("canvas")
         this.ctx = canvas.getContext("2d")
         this.size = [this.canvas.width, this.canvas.height]
-        this.unity = 50 // quantos pixels equivalem a uma unidade no gráfico
+        this.unity = 30 // quantos pixels equivalem a uma unidade no gráfico
         this.obj_drawer = new ObjectDrawer(this.ctx, this.unity)
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)
 
@@ -166,15 +205,7 @@ class Plane {
         this.drawPlane()
         // this.drawPlane()
         // formatar equação 
-        equation = formatEquations(equation)
         
-        // verifica a validade da equação 
-        try {
-            !eval(equation.replace(/x/ig, 1))
-        } catch (err) {
-            alert("Equação inválida!")
-            return;
-        }
         
 
         // desenhar gráfico 

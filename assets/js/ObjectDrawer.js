@@ -49,6 +49,7 @@ class ObjectDrawer {
 
     drawAreaUnderFunction(under_limit, upper_limit, num_divisions, equation) {
         var delta_Xi = (upper_limit - under_limit) / num_divisions
+        // var riemann_sum = 0
 
         for(var rep = 0; rep < num_divisions; rep++) {
             // calcular x inicial do retângulo
@@ -62,10 +63,14 @@ class ObjectDrawer {
 
             if (height_rect) {
                 this.drawSquare(X_rect, 0, delta_Xi, height_rect, "rgb(255, 0, 0)", "rgba(255, 0, 0, 0.5)")
+                // console.log(delta_Xi, height_rect)
+                // riemann_sum += Math.abs(delta_Xi * height_rect)
             }
 
+            
             // desenhar retângulo
         }
+        // console.log("Soma de riemman: ", riemann_sum.toFixed(2))
     }
 
     drawLimits(under_limit, upper_limit, equation) {

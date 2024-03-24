@@ -55,4 +55,9 @@
     display: flex;
     margin-left: 30px;
     margin-top: 20px;
+    font-size: 2rem;
+}
+.input__sum-result {
+    margin-left: 10px;
+    
 }
