@@ -1,0 +1,47 @@
+EXPLICAR: 
+Para funções com alta taxa de variação - precisão 2 (mais lento) 
+O algoritmo segue a hierarquia das operações, então, se há partes que devem ser calculadas primeiro -> usar parenteses 
+	ex: 1 / x+1 -> 1 / (x+1)
+
+exemplos para a documentação 
+
+polinomiais 
+x**2 + 2x + 2
+x**2 - 2x - 2
+-x**3 + 2 
+
+exponenciais 
+2**x
+2**(2x)
+x**4 - 3x**3
+2**(-x)
+3 * 2**(-x)
+
+logaritmicas
+ln(x) - log base e
+log2(x) - log base 2
+log10(x) - log base 10
+log10(x) - log base 10
+
+trigonometricas 
+sen(x)
+2sen(x+1)+1
+cos(x)
+tg(x)
+-sen(x) + cos(2x)
+-sen(x) + 2cos(-2x) + 3
+
+racionais (usar modo 2) 
+1 / x
+1 / (x-1)
+(x**2-1)/(x+1)
+
+raiz
+raiz2(x) - raiz quadrada 
+raiz3(x) - raiz cúbica
+
+
+-raiz2(x-2) + raiz3(x)
+sen(x) + 1/x
+
+
