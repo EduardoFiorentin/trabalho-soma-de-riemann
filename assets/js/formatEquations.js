@@ -2,6 +2,12 @@ function formatEquations(equation) {
     // algebricas
     // equation.replace("")
 
+    equation = equation.replace(/([1-9])([sen])/g, "$1*$2")
+    equation = equation.replace(/([1-9])([cos])/g, "$1*$2")
+    equation = equation.replace(/([1-9])([tg])/g, "$1*$2")
+
+    console.log(equation)
+
     // sen
     equation = equation.replace(/sen\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sin($1)")
     
@@ -10,6 +16,15 @@ function formatEquations(equation) {
     
     // tg 
     equation = equation.replace(/tg\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.tan($1)")
+    
+    // senh
+    equation = equation.replace(/senh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sinh($1)")
+    
+    // cosh
+    equation = equation.replace(/cosh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cosh($1)")
+    
+    //tgh
+    equation = equation.replace(/tgh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.tanh($1)")
    
     // equation = equation.replace(/ln\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log($1)")
     
@@ -43,7 +58,6 @@ function formatEquations(equation) {
     equation = equation.replace(/(\d)x/g, "$1*x")
 
     equation = equation.replace(/(x)\*\*/g, "($1)**")
-    
     
     equation = equation.replace(/-/g, "-1 * ")
 

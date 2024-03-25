@@ -3,6 +3,11 @@ function start() {
     graphic.drawPlane()
 }
 
+function calcularDistancia(xAntigo, yAntigo, xAtual, yAtual) {
+    let distancia = Math.sqrt(Math.pow(xAtual - xAntigo, 2) + Math.pow(yAtual - yAntigo, 2));
+    return distancia;
+}
+
 function draw() {
     // coleta dos dados 
     let equation = document.getElementById("equation").value
@@ -23,8 +28,8 @@ function draw() {
         divisions = parseInt(divisions)
 
         // limitar numero de divisões
-        if (divisions > 500) {
-            alert("O máximo são 500 divisões!")
+        if (divisions > 1000) {
+            alert("O máximo são 1000 divisões!")
             return;
         }
 
@@ -55,15 +60,19 @@ function draw() {
     const graphic = new Plane
     const calc = new AreaCalculator
 
+    console.log(calculate_button)
+    calculate_button.innerHTML = "<p>Calculando...</p>"
+    console.log(calculate_button)
+
     graphic.draw(equation, upper_limit, under_limit, divisions)
     let riemann_sum = calc.calculateRiemannSum(under_limit, upper_limit, divisions, equation)
     // let real_area = calc.calculateRealArea(under_limit, upper_limit, equation)
 
     //imprimir resultados 
-    console.log(riemann_sum)
+    // console.log(riemann_sum)
     sum_response_path.innerText = riemann_sum ? riemann_sum : " Não calculado"
     // integral_response_path.innerText = real_area ? real_area : " Não calculado"
-
+    calculate_button.innerHTML = "<p>Calcular</p>"
 }
 
 
@@ -75,53 +84,57 @@ class Plane {
         this.unity = 30 // quantos pixels equivalem a uma unidade no gráfico
         this.obj_drawer = new ObjectDrawer(this.ctx, this.unity)
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)
+        this.precision = 0.01
 
         this.configPlane()
     }
 
     plotEquationByDots(equation, color) {
-        for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=0.01) {
+        for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=this.precision) {
             this.obj_drawer.drawDot(x, eval(equation.replace(/x/ig, x)), 1, color)
         }
     }
 
-    // plotEquationByLine(equation, color) {
+    plotEquationByLine(equation, color) {
 
-    //     let start_x = -this.qtd_dots
-    //     let start_y = eval(equation.replace(/x/ig, start_x))
+        let start_x = -this.qtd_dots
+        let start_y = eval(equation.replace(/x/ig, start_x))
 
-    //     console.log(start_x, -start_y)
+        console.log(start_x, -start_y)
 
-    //     this.ctx.beginPath();
-    //     this.ctx.lineWidth = 2;
-    //     this.ctx.strokeStyle = color;
-    //     this.ctx.moveTo(start_x * this.unity, -start_y * this.unity);
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 3;
+        this.ctx.strokeStyle = color;
+        this.ctx.moveTo(start_x * this.unity, -start_y * this.unity);
 
-    //     // let last_dot = [start_x, start_y]; 
-    //     let damage_controll = false
+        // let last_dot = [start_x, start_y]; 
+        let last_x = start_x
+        let last_y = -start_y
+        let cut_line = -1
+        let dist = 0
 
-    //     for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=0.01) {
-    //         let y = eval(equation.replace(/x/ig, x))
+        for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=this.precision) {
+            let y = eval(equation.replace(/x/ig, x))
             
-    //         damage_controll = false
-    //         if (!y) {
-    //             damage_controll = true
-    //         }
+            dist = calcularDistancia(last_x, -last_y, x, -y)
             
-    //         if (damage_controll) {
-    //             this.ctx.moveTo(x * this.unity, -y * this.unity)
-    //         } else {
-    //             this.ctx.lineTo(x * this.unity, -y * this.unity)
-    //             damage_controll = false
-    //         }
+            if (dist > 40) {
+                this.ctx.moveTo(x * this.unity, -y * this.unity)
+                console.log("moveTo")
+            } else {
+                // console.log(equation.replace(/x/gi, x), eval(equation.replace(/x/ig, x)))
+                this.ctx.lineTo(x * this.unity, -y * this.unity)
+                // this.obj_drawer.drawDot(x, eval(equation.replace(/x/ig, x)), 1, color)
+            }
             
+            // console.log('dist ', calcularDistancia(last_x, last_y, x, y))
+            last_x = x
+            last_y = -y
+        }
             
-    //     }
-
-    
-    //     this.ctx.stroke();
-    //     this.ctx.closePath();
-    // }
+        this.ctx.stroke();
+        this.ctx.closePath();
+    }
     
     configPlane() {
         this.ctx.translate(this.size[0]/2, this.size[1]/2)
@@ -210,7 +223,9 @@ class Plane {
 
         // desenhar gráfico 
         this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation)
-        this.plotEquationByDots(equation, 'blue')
+        // this.plotEquationByDots(equation, 'blue')
+        console.log(equation)
+        this.plotEquationByLine(equation, 'blue')
         this.obj_drawer.drawLimits(under_limit, upper_limit, equation)
     }
 
