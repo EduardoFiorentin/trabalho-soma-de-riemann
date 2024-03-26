@@ -15,6 +15,9 @@ function draw() {
     let under_limit = document.getElementById("under_limit").value
     let upper_limit = document.getElementById("upper_limit").value
     let divisions = document.getElementById("divisions").value
+    // let direction = "esquerda"
+    let direction = document.getElementById("equation__select").value
+    console.log(direction)
 
     let sum_response_path = document.getElementById('sum_response')
 
@@ -58,10 +61,10 @@ function draw() {
     const calc = new AreaCalculator
     
     // plotar gráfico 
-    graphic.draw(equation, upper_limit, under_limit, divisions)
+    graphic.draw(equation, upper_limit, under_limit, divisions, direction)
 
     // calcular área
-    let riemann_sum = calc.calculateRiemannSum(under_limit, upper_limit, divisions, equation)
+    let riemann_sum = calc.calculateRiemannSum(under_limit, upper_limit, divisions, equation, direction)
 
     //imprimir resultados 
     sum_response_path.innerText = riemann_sum ? riemann_sum : "Não calculado"
@@ -173,14 +176,14 @@ class Plane {
         this.configPlane()
     }
 
-    draw(equation, upper_limit, under_limit, divisions) {
+    draw(equation, upper_limit, under_limit, divisions, direction) {
         this.clearPlane()
         this.drawPlane()
         
         // desenhar gráfico 
-        this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation)    // desenha as divisões da soma de riemann
-        this.plotEquationByLine(equation, 'blue')                                               // desenha a função 
-        this.obj_drawer.drawLimits(under_limit, upper_limit, equation)                          // desenha os pontos de limite escolhidos 
+        this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation, direction)     // desenha as divisões da soma de riemann
+        this.plotEquationByLine(equation, 'blue')                                                           // desenha a função 
+        this.obj_drawer.drawLimits(under_limit, upper_limit, equation)                                      // desenha os pontos de limite escolhidos 
     }
 
 }

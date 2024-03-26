@@ -36,6 +36,10 @@
     padding: 10px;
     cursor: pointer;
 }
+.equation__select {
+    width: 255px;
+    font-size: 1.5rem;
+}
 
 
 .results {

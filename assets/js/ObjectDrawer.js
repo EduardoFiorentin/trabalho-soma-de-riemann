@@ -1,3 +1,4 @@
+// objeto usado para fazer desenhos no gráfico  
 class ObjectDrawer {
 
     constructor(ctx, unity){
@@ -5,6 +6,7 @@ class ObjectDrawer {
         this.unity = unity
     }
 
+    // desenha retângulo no gráfico
     drawRect(x, y, width, height, color) {
         this.ctx.fillStyle = color;
         x *= this.unity
@@ -15,6 +17,7 @@ class ObjectDrawer {
         this.ctx.fillStyle = "rgb(0, 0, 0)";
     }
 
+    // desenha circulo/ponto no gráfico 
     drawDot(x, y, radious, color) {
         this.ctx.fillStyle = color;
         x *= this.unity
@@ -28,7 +31,7 @@ class ObjectDrawer {
         //resetar cor após desenhar
         this.ctx.fillStyle = "rgb(0, 0, 0)";
     }
-
+    // desenha retângulos com preenchimento
     drawSquare(x, y, width, height, strokeColor, fillColor) {
 
         x *= this.unity
@@ -36,18 +39,19 @@ class ObjectDrawer {
         width *= this.unity
         height *= this.unity
 
-        this.ctx.strokeStyle = strokeColor; // Cor da borda
-        this.ctx.fillStyle = fillColor; // Cor do preenchimento
-        this.ctx.lineWidth = 2; // Largura da borda
+        this.ctx.strokeStyle = strokeColor;     // Cor da borda
+        this.ctx.fillStyle = fillColor;         // Cor do preenchimento
+        this.ctx.lineWidth = 2;                 // Largura da borda
 
         this.ctx.beginPath();
         this.ctx.rect(x, y, width, -height);
-        this.ctx.stroke(); // Desenha a borda
-        this.ctx.fill(); // Preenche o retângulo
+        this.ctx.stroke();                      // Desenha a borda
+        this.ctx.fill();                        // Preenche o retângulo
         this.ctx.closePath();
     }
 
-    drawAreaUnderFunction(under_limit, upper_limit, num_divisions, equation) {
+    // calcula e desenha os retângulos da soma de riemann
+    drawAreaUnderFunction(under_limit, upper_limit, num_divisions, equation, direction) {
         var delta_Xi = (upper_limit - under_limit) / num_divisions
         // var riemann_sum = 0
 
@@ -55,8 +59,20 @@ class ObjectDrawer {
             // calcular x inicial do retângulo
             var X_rect = under_limit + rep * delta_Xi
 
-            // calcular ponto médio do x do retângulo
-            var Ci = X_rect + delta_Xi / 2
+            var Ci = 0
+            if (direction === "centro") {
+                // altura y ao centro do retângulo
+                Ci = X_rect + delta_Xi / 2
+            } 
+            else if (direction === "direita"){
+                // altura y à esquerda do retângulo
+                Ci = X_rect + delta_Xi
+            }
+            else if (direction === "esquerda"){
+                //altura y à direita do retângulo
+                Ci = X_rect
+            }
+
 
             // calcular altura do retângulo
             var height_rect = eval(equation.replace(/x/ig, Ci))
