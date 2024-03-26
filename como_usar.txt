@@ -1,18 +1,22 @@
-EXPLICAR: 
-Para funções com alta taxa de variação - precisão 2 (mais lento) 
+Observações: 
 O algoritmo segue a hierarquia das operações, então, se há partes que devem ser calculadas primeiro -> usar parenteses 
 	ex: 1 / x+1 -> 1 / (x+1)
 
-exemplos para a documentação 
+Como usar: 
+	Abra o arquivo index.html usando um navegador web
+
+Exemplos de funções:
 
 polinomiais 
 x**2 + 2x + 2
-x**2 - 2x - 2
+-x**2 - 2x - 2
 -x**3 + 2 
 
 exponenciais 
 2**x
+2**(-x)
 2**(2x)
+-2**(2x)
 x**4 - 3x**3
 2**(-x)
 3 * 2**(-x)
@@ -20,7 +24,6 @@ x**4 - 3x**3
 logaritmicas
 ln(x) - log base e
 log2(x) - log base 2
-log10(x) - log base 10
 log10(x) - log base 10
 
 trigonometricas 
@@ -31,7 +34,7 @@ tg(x)
 -sen(x) + cos(2x)
 -sen(x) + 2cos(-2x) + 3
 
-racionais (usar modo 2) 
+racionais
 1 / x
 1 / (x-1)
 (x**2-1)/(x+1)
@@ -41,7 +44,7 @@ raiz2(x) - raiz quadrada
 raiz3(x) - raiz cúbica
 
 
--raiz2(x-2) + raiz3(x)
+junções
 sen(x) + 1/x
-
-
+sen(x**2) + 1/x
+x*sen(x)
