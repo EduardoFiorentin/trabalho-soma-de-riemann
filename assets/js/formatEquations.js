@@ -1,12 +1,11 @@
+
+// substitui a notação simplificada das funções pela estrutura executável de código JS
 function formatEquations(equation) {
-    // algebricas
-    // equation.replace("")
+
 
     equation = equation.replace(/([1-9])([sen])/g, "$1*$2")
     equation = equation.replace(/([1-9])([cos])/g, "$1*$2")
     equation = equation.replace(/([1-9])([tg])/g, "$1*$2")
-
-    console.log(equation)
 
     // sen
     equation = equation.replace(/sen\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sin($1)")
@@ -26,8 +25,6 @@ function formatEquations(equation) {
     //tgh
     equation = equation.replace(/tgh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.tanh($1)")
    
-    // equation = equation.replace(/ln\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log($1)")
-    
     // ln
     equation = equation.replace(/ln\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log($1)")
 
@@ -43,14 +40,6 @@ function formatEquations(equation) {
     
     // raiz cubica
     equation = equation.replace(/raiz3\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cbrt($1)")
-    
-    // e**x
-    // equation = equation.replace(/exp\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.exp($1)")
-
-    // exp
-    // equation = equation.replace(/e\*\*\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.exp($1)")
-
-    Math.exp
     
     // abs
     equation = equation.replace(/mod\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.abs($1)")
