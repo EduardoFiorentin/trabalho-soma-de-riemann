@@ -1,9 +1,17 @@
+// calcular distância entre 2 pontos em um plano de duas dimensões
+function calcularDistancia(xAntigo, yAntigo, xAtual, yAtual) {
+    let distancia = Math.sqrt(Math.pow(xAtual - xAntigo, 2) + Math.pow(yAtual - yAntigo, 2));
+    return distancia;
+}
+
 // objeto usado para fazer desenhos no gráfico  
 class ObjectDrawer {
 
-    constructor(ctx, unity){
+    constructor(ctx, unity, qtd_dots, precision){
         this.ctx = ctx
         this.unity = unity
+        this.qtd_dots = qtd_dots
+        this.precision = precision
     }
 
     // desenha retângulo no gráfico
@@ -53,9 +61,9 @@ class ObjectDrawer {
     // calcula e desenha os retângulos da soma de riemann
     drawAreaUnderFunction(under_limit, upper_limit, num_divisions, equation, direction) {
         var delta_Xi = (upper_limit - under_limit) / num_divisions
-        // var riemann_sum = 0
 
         for(var rep = 0; rep < num_divisions; rep++) {
+            
             // calcular x inicial do retângulo
             var X_rect = under_limit + rep * delta_Xi
 
@@ -79,14 +87,8 @@ class ObjectDrawer {
 
             if (height_rect) {
                 this.drawSquare(X_rect, 0, delta_Xi, height_rect, "rgb(255, 0, 0)", "rgba(255, 0, 0, 0.5)")
-                // console.log(delta_Xi, height_rect)
-                // riemann_sum += Math.abs(delta_Xi * height_rect)
             }
-
-            
-            // desenhar retângulo
         }
-        // console.log("Soma de riemman: ", riemann_sum.toFixed(2))
     }
 
     drawLimits(under_limit, upper_limit, equation) {
@@ -116,5 +118,50 @@ class ObjectDrawer {
         // desenhar ponto nos limites 
         this.drawDot(under_limit_x / this.unity, -under_limit_y / this.unity, 5, 'black')
         this.drawDot(upper_limit_x / this.unity, -upper_limit_y / this.unity, 5, 'black')
+    }
+
+    plotEquationByLine(equation, color) {
+
+        let start_x = -this.qtd_dots
+        let start_y = eval(equation.replace(/x/ig, start_x))
+
+        // configuração da linha 
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 3;         // espessura
+        this.ctx.strokeStyle = color;   // cor
+    
+
+        this.ctx.moveTo(start_x * this.unity, -start_y * this.unity);
+
+        // variáveis de referência para detectar descontinuidades nas funções
+        // evitam que pontos de descontinuidades sejam ligados pela linha 
+        let last_x = start_x
+        let last_y = -start_y
+        let dist = 0
+
+        for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=this.precision) {
+            let y = eval(equation.replace(/x/ig, x))
+            
+            dist = calcularDistancia(last_x, -last_y, x, -y)
+            
+            if (dist > 40) {
+                this.ctx.moveTo(x * this.unity, -y * this.unity)
+            } else {
+                this.ctx.lineTo(x * this.unity, -y * this.unity)
+            }
+            
+            last_x = x
+            last_y = -y
+        }
+            
+        this.ctx.stroke();
+        this.ctx.closePath();
+    }
+
+    // plota a função desenhando pontos 
+    plotEquationByDots(equation, color) {
+        for (var x = -this.qtd_dots; x <= this.qtd_dots; x += this.precision) {
+            this.drawDot(x, eval(equation.replace(/x/ig, x)), 1, color)
+        }
     }
 }

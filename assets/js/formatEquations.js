@@ -2,7 +2,6 @@
 // substitui a notação simplificada das funções pela estrutura executável de código JS
 function formatEquations(equation) {
 
-
     equation = equation.replace(/([1-9])([sen])/g, "$1*$2")
     equation = equation.replace(/([1-9])([cos])/g, "$1*$2")
     equation = equation.replace(/([1-9])([tg])/g, "$1*$2")

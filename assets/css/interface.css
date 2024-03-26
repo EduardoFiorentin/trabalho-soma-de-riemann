@@ -3,7 +3,6 @@
     justify-content: center;
     width: 100vw;
 }
-
 .interface {
     width: 50%;
 }
@@ -14,7 +13,6 @@
     margin-bottom: 15px;
     font-size: 3rem;
 }
-
 .equation {
     width: 100%;
     display: flex;
@@ -22,7 +20,6 @@
     align-items: center;
     margin-top: 50px;
 }
-
 .equation__input {
     width: 250px;
     font-size: 1.5rem;
@@ -30,7 +27,6 @@
 .equation__container {
     margin-bottom: 10px;
 }
-
 .equation__button {
     width: 200px;
     padding: 10px;
@@ -40,8 +36,6 @@
     width: 255px;
     font-size: 1.5rem;
 }
-
-
 .results {
     width: 90%;
     display: flex;
@@ -53,8 +47,6 @@
     font-size: 3rem;
     text-align: center;
 }
-
-
 .result__container {
     display: flex;
     margin-left: 30px;

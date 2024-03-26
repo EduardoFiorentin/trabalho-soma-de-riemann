@@ -1,8 +1,5 @@
 class AreaCalculator {
-    constructor(){
-
-    }
-
+    constructor(){}
     calculateRiemannSum(under_limit, upper_limit, num_divisions, equation, direction) {
         var delta_Xi = (upper_limit - under_limit) / num_divisions
         var soma_riemann = 0
