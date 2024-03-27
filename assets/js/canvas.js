@@ -71,7 +71,7 @@ class Plane {
         this.size = [this.canvas.width, this.canvas.height]             // tamanho da área de desenho (em pixels)
 
         // unidade de medida - número maior = mais zoom no gráfico
-        this.unity = 50                                                 // quantos pixels equivalem a uma unidade no gráfico
+        this.unity = 40                                                 // quantos pixels equivalem a uma unidade no gráfico
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
         this.precision = 0.01                                           // precisão da linha de desenho da função

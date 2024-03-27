@@ -1,9 +1,9 @@
 Observações: 
-O algoritmo segue a hierarquia das operações, então, se há partes que devem ser calculadas primeiro -> usar parenteses 
+O algoritmo respeita a hierarquia das operações, então, se há partes que devem ser calculadas primeiro, use parenteses 
 	ex: 1 / x+1 -> 1 / (x+1)
 
 Como usar: 
-	Abra o arquivo index.html usando um navegador web
+	Abra o arquivo index.html usando um navegador, ou acesse o link: 
 
 Exemplos de funções:
 
@@ -11,6 +11,7 @@ polinomiais
 x**2 + 2x + 2
 -x**2 - 2x - 2
 -x**3 + 2 
+mod(x) - módulo de x
 
 exponenciais 
 2**x
@@ -18,7 +19,6 @@ exponenciais
 2**(2x)
 -2**(2x)
 x**4 - 3x**3
-2**(-x)
 3 * 2**(-x)
 
 logaritmicas
@@ -28,9 +28,13 @@ log10(x) - log base 10
 
 trigonometricas 
 sen(x)
-2sen(x+1)+1
 cos(x)
 tg(x)
+senh(x) - seno hiperbolico
+cosh(x) - cosseno hiperbolico 
+tgh(x) - tg hiperbolica 
+
+2sen(x+1)+1
 -sen(x) + cos(2x)
 -sen(x) + 2cos(-2x) + 3
 
