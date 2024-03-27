@@ -4,6 +4,10 @@ O algoritmo respeita a hierarquia das operações, então, se há partes que dev
 
 Como usar: 
 	Abra o arquivo index.html usando um navegador, ou acesse o link: 
+	https://eduardofiorentin.github.io/trabalho-soma-de-riemann/
+
+	Repositório com o código: 
+	https://github.com/EduardoFiorentin/trabalho-soma-de-riemann/
 
 Exemplos de funções:
 
