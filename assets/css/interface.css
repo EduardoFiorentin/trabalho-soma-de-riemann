@@ -57,3 +57,26 @@
     margin-left: 10px;
     
 }
+
+@media screen and (max-width: 1040px) {
+    .graphics__canvas {
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .equation {
+        width: 300px;
+    }
+    .interface__title {
+        font-size: 2rem;
+    }
+    .results {
+        width: 300px;
+    }
+    .results__title {
+        font-size: 2rem;
+    }
+    .result {
+        font-size: 1rem;
+    }
+}

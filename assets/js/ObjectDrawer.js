@@ -123,6 +123,7 @@ class ObjectDrawer {
     plotEquationByLine(equation, color) {
 
         let start_x = -this.qtd_dots
+        console.log(equation)
         let start_y = eval(equation.replace(/x/ig, start_x))
 
         // configuração da linha 
