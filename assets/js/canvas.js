@@ -74,7 +74,7 @@ class Plane {
         this.unity = 40                                                 // quantos pixels equivalem a uma unidade no gráfico
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
-        this.precision = 0.11                                           // precisão da linha de desenho da função
+        this.precision = 0.015                                           // precisão da linha de desenho da função
         
         this.obj_drawer = new ObjectDrawer(this.ctx, this.unity, this.qtd_dots, this.precision) 
         this.configPlane()
