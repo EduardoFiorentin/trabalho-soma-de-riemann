@@ -9,6 +9,14 @@ Como usar:
 	Repositório com o código: 
 	https://github.com/EduardoFiorentin/trabalho-soma-de-riemann/
 
+Operadores 
++  	-> soma
+-  	-> subtração
+*  	-> multiplicação
+/  	-> divisão 
+** 	-> exponenciação
+
+
 Exemplos de funções:
 
 polinomiais 
