@@ -9,8 +9,8 @@ html {
     width: 50%;
 }
 .graphics__canvas {
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
 }
 .graphics__title {
     text-align: center;
@@ -20,4 +20,26 @@ html {
 }
 .graphics__canvas {
     border: 1px solid black;
+}
+
+@media screen and (max-width: 1040px) {
+    .graphics__canvas {
+        width: 50vw;
+        height: 50vw;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .graphics__canvas {
+        width: 70vw;
+        height: 70vw;
+    }
+
+}
+@media screen and (max-width: 425px) {
+    .graphics__canvas {
+        width: 90vw;
+        height: 90vw;
+    }
+
 }

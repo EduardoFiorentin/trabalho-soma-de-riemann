@@ -53,7 +53,7 @@ function draw() {
     const calc = new AreaCalculator
     
     // plotar gráfico 
-    graphic. drawFunction(equation, upper_limit, under_limit, divisions, direction)
+    graphic.drawFunction(equation, upper_limit, under_limit, divisions, direction)
 
     // calcular área
     let riemann_sum = calc.calculateRiemannSum(under_limit, upper_limit, divisions, equation, direction)
@@ -74,7 +74,7 @@ class Plane {
         this.unity = 40                                                 // quantos pixels equivalem a uma unidade no gráfico
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
-        this.precision = 0.01                                           // precisão da linha de desenho da função
+        this.precision = 0.015                                           // precisão da linha de desenho da função
         
         this.obj_drawer = new ObjectDrawer(this.ctx, this.unity, this.qtd_dots, this.precision) 
         this.configPlane()
@@ -125,7 +125,7 @@ class Plane {
     drawFunction(equation, upper_limit, under_limit, divisions, direction) {
         this.clearPlane()
         this.drawPlane()
-        
+        console.log(equation)
         // desenhar gráfico 
         this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation, direction)     // desenha as divisões da soma de riemann
         this.obj_drawer.plotEquationByLine(equation, 'blue')                                                // desenha a função 
