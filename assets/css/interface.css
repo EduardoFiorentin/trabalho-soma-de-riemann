@@ -1,10 +1,14 @@
 .program {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100vw;
+    height: 100vh;
+    box-sizing: content-box;
+    margin: 0;
 }
 .interface {
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-direction: column;
 }
@@ -46,14 +50,14 @@
     margin-left: 30px;
 }
 .results__title {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
 }
 .result__container {
     display: flex;
     margin-left: 30px;
     margin-top: 20px;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 .input__sum-result {
     margin-left: 10px;
@@ -61,11 +65,6 @@
 }
 
 @media screen and (max-width: 1040px) {
-    .graphics__canvas {
-        width: 40vw;
-        height: 40vw;
-    }
-
     .equation {
         width: 300px;
     }
@@ -86,6 +85,39 @@
         font-size: 1rem;
         font-weight: bold;
     }
+    .equation__input {
+        width: 150px;
+        font-size: 1rem;
+    }
+    .equation__select {
+        width: 155px;
+        font-size: 1rem;
+    }
 }
 
-@media screen and (max-width: 1040px) {
+@media screen and (max-width: 568px) {
+    
+    .program {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin: 50px 0;
+    }
+    .interface {
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .equation__input {
+        width: 250px;
+        font-size: 1.5rem;
+    }
+    .equation__select {
+        width: 255px;
+        font-size: 1.5rem;
+    }
+
+}
+/* @media screen and (max-width: 1040px) { */

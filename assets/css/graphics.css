@@ -24,7 +24,22 @@ html {
 
 @media screen and (max-width: 1040px) {
     .graphics__canvas {
-        width: 40vw;
-        height: 40vw;
+        width: 50vw;
+        height: 50vw;
     }
+}
+
+@media screen and (max-width: 568px) {
+    .graphics__canvas {
+        width: 70vw;
+        height: 70vw;
+    }
+
+}
+@media screen and (max-width: 425px) {
+    .graphics__canvas {
+        width: 90vw;
+        height: 90vw;
+    }
+
 }
