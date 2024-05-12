@@ -38,7 +38,7 @@ function draw() {
         
         // verifica a validade da equação 
         try {
-            !eval(equation.replace(/x/ig, 1))
+            !eval(equation.replace(/x/ig, 1).replace(/y/ig, 1))
         } catch (err) {
             alert("Equação inválida!")
             return;
@@ -56,7 +56,8 @@ function draw() {
     graphic.drawFunction(equation, upper_limit, under_limit, divisions, direction)
 
     // calcular área
-    let riemann_sum = calc.calculateRiemannSum(under_limit, upper_limit, divisions, equation, direction)
+    let riemann_sum = 0
+    // let riemann_sum = calc.calculateRiemannSum(under_limit, upper_limit, divisions, equation, direction)
 
     //imprimir resultados 
     sum_response_path.innerText = riemann_sum ? riemann_sum : "Não calculado"
@@ -74,7 +75,8 @@ class Plane {
         this.unity = 40                                                 // quantos pixels equivalem a uma unidade no gráfico
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
-        this.precision = 0.015                                           // precisão da linha de desenho da função
+        // this.precision = 0.021                                         // precisão para curvas de nível
+        this.precision = 0.0136                                          // precisão para funções de uma variavel
         
         this.obj_drawer = new ObjectDrawer(this.ctx, this.unity, this.qtd_dots, this.precision) 
         this.configPlane()
@@ -128,8 +130,14 @@ class Plane {
         console.log(equation)
         // desenhar gráfico 
         this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation, direction)     // desenha as divisões da soma de riemann
-        this.obj_drawer.plotEquationByLine(equation, 'blue')                                                // desenha a função 
+        this.obj_drawer.plotEquationByLine(equation, "red")
         this.obj_drawer.drawLimits(under_limit, upper_limit, equation)                                      // desenha os pontos de limite escolhidos 
+        
+        // this.obj_drawer.plotLevelCurves(equation, 'green', 0)
+        // this.obj_drawer.plotLevelCurves(equation, 'red', 3)
+        // this.obj_drawer.plotLevelCurves(equation, 'blue', 4)
+        // this.obj_drawer.plotLevelCurves(equation, 'gray', 8)
+        // this.obj_drawer.plotEquationByLine(equation, 'blue')                                                // desenha a função 
     }
 
 }
