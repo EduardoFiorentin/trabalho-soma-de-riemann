@@ -72,11 +72,11 @@ class Plane {
         this.size = [this.canvas.width, this.canvas.height]             // tamanho da área de desenho (em pixels)
 
         // unidade de medida - número maior = mais zoom no gráfico
-        this.unity = 40                                                 // quantos pixels equivalem a uma unidade no gráfico
+        this.unity = 80                                                 // quantos pixels equivalem a uma unidade no gráfico
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
-        // this.precision = 0.021                                         // precisão para curvas de nível
-        this.precision = 0.0136                                          // precisão para funções de uma variavel
+        this.precision = 0.021                                         // precisão para curvas de nível
+        // this.precision = 0.0136                                          // precisão para funções de uma variavel
         
         this.obj_drawer = new ObjectDrawer(this.ctx, this.unity, this.qtd_dots, this.precision) 
         this.configPlane()
@@ -129,13 +129,13 @@ class Plane {
         this.drawPlane()
         console.log(equation)
         // desenhar gráfico 
-        this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation, direction)     // desenha as divisões da soma de riemann
-        this.obj_drawer.plotEquationByLine(equation, "red")
-        this.obj_drawer.drawLimits(under_limit, upper_limit, equation)                                      // desenha os pontos de limite escolhidos 
+        // this.obj_drawer.drawAreaUnderFunction(under_limit, upper_limit, divisions, equation, direction)     // desenha as divisões da soma de riemann
+        // this.obj_drawer.plotEquationByLine(equation, "red")
+        // this.obj_drawer.drawLimits(under_limit, upper_limit, equation)                                      // desenha os pontos de limite escolhidos 
         
-        // this.obj_drawer.plotLevelCurves(equation, 'green', 0)
-        // this.obj_drawer.plotLevelCurves(equation, 'red', 3)
-        // this.obj_drawer.plotLevelCurves(equation, 'blue', 4)
+        this.obj_drawer.plotLevelCurves(equation, 'green', 0)
+        this.obj_drawer.plotLevelCurves(equation, 'red', 1)
+        this.obj_drawer.plotLevelCurves(equation, 'blue', 2)
         // this.obj_drawer.plotLevelCurves(equation, 'gray', 8)
         // this.obj_drawer.plotEquationByLine(equation, 'blue')                                                // desenha a função 
     }
