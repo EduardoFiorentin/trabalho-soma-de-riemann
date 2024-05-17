@@ -161,51 +161,9 @@ class ObjectDrawer {
         this.ctx.closePath();
     }
 
-    // plotEquationByLine2vars(equation, color) {
-
-    //     let start_x = -this.qtd_dots
-    //     start
-    //     console.log(equation)
-    //     let start_z = eval(equation.replace(/x/ig, start_x))
-
-    //     // configuração da linha 
-    //     this.ctx.beginPath();
-    //     this.ctx.lineWidth = 3;         // espessura
-    //     this.ctx.strokeStyle = color;   // cor
-    
-
-    //     this.ctx.moveTo(start_x * this.unity, -start_z * this.unity);
-
-    //     // variáveis de referência para detectar descontinuidades nas funções
-    //     // evitam que pontos de descontinuidades sejam ligados pela linha 
-    //     let last_x = start_x
-    //     let last_z = -start_z
-    //     let dist = 0
-
-    //     for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=this.precision) {
-    //         let y = eval(equation.replace(/x/ig, x))
-            
-    //         dist = calcularDistancia(last_x, -last_z, x, -y)
-    //         // console.log(x, dist)
-
-    //         if (dist > 40) {
-    //             // console.log("corte *******************************************************************")
-    //             this.ctx.moveTo(x * this.unity, -y * this.unity)
-    //         } else {
-    //             this.ctx.lineTo(x * this.unity, -y * this.unity)
-    //         }
-            
-    //         last_x = x
-    //         last_z = -y
-    //     }
-            
-    //     this.ctx.stroke();
-    //     this.ctx.closePath();
-    // }
-
+    // calcula valores de z em R3 dentro do intervalo (this.qtd_dots) e plota aqueles que estão no level selecionado
     plotLevelCurves(equation, color, level) {
         var z;
-        console.log("incio")
         for (var y = -this.qtd_dots; y <= this.qtd_dots; y += 0.15) {
             for (var x = -this.qtd_dots; x <= this.qtd_dots; x += this.precision) {
                 // console.log("a")
@@ -216,7 +174,6 @@ class ObjectDrawer {
                 }
             }
         }
-        console.log("fim")
     }
 
     // plota a função desenhando pontos 

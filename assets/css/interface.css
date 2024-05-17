@@ -7,6 +7,9 @@
     box-sizing: content-box;
     margin: 0;
 }
+.loading {
+    cursor: progress;
+}
 .interface {
     width: 30%;
     display: flex;
@@ -18,6 +21,9 @@
     margin-top: 30px;
     margin-bottom: 15px;
     font-size: 3rem;
+}
+.mode__selector-container {
+    padding-bottom: 30px;
 }
 .equation {
     width: 100%;
@@ -61,8 +67,12 @@
 }
 .input__sum-result {
     margin-left: 10px;
-    
 }
+
+.hide__container {
+    display: none;
+}
+
 
 @media screen and (max-width: 1040px) {
     .equation {
