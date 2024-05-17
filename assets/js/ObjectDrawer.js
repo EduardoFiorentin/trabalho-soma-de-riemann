@@ -206,13 +206,12 @@ class ObjectDrawer {
     plotLevelCurves(equation, color, level) {
         var z;
         console.log("incio")
-        for (var x = -this.qtd_dots; x <= this.qtd_dots; x += this.precision) {
-            for (var y = -this.qtd_dots; y <= this.qtd_dots; y += this.precision) {
+        for (var y = -this.qtd_dots; y <= this.qtd_dots; y += 0.15) {
+            for (var x = -this.qtd_dots; x <= this.qtd_dots; x += this.precision) {
                 // console.log("a")
                 z = eval(equation.replace(/x/ig, x).replace(/y/gi, y))
                 // console.log(Math.floor(z*1000) )
-                if (Math.round(z*10) === level*10) {
-                    // console.log("draw", x, y)
+                if (Math.round(z*100) === level*100) {
                     this.drawDot(x, y, 1, color)
                 }
             }
