@@ -7,14 +7,23 @@ function start() {
 
 function draw() {
     // coleta dos dados 
-    let equation = document.getElementById("equation").value
     let under_limit = document.getElementById("under_limit").value
     let upper_limit = document.getElementById("upper_limit").value
     let divisions = document.getElementById("divisions").value
     let direction = document.getElementById("equation__select").value
     let mode = document.getElementById("mode__selector").value
-
+    
     let sum_response_path = document.getElementById('sum_response')
+    
+    
+    // seleção da equação 
+    let equation 
+    if (mode === "soma") {
+        equation = document.getElementById("equation__sum").value
+    }
+    else if (mode == "curvas") {
+        equation = document.getElementById("equation__curves").value
+    }
 
     // validação e tratamentos 
     if (equation && under_limit && upper_limit && divisions) {
@@ -100,11 +109,11 @@ class Plane {
         this.unity = 80                                                 // quantos pixels equivalem a uma unidade no gráfico
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
-        // this.precision = 0.021                                       // precisão para curvas de nível
-        this.precision = 0.0003                                      // precisão para funções de uma variavel
+        this.curves_precision = 0.0021                                       // precisão para curvas de nível
+        this.sum_precision = 0.0003                                      // precisão para funções de uma variavel
         // this.precision = 0.001                                            // precisão para testes 
         
-        this.obj_drawer = new ObjectDrawer(this.ctx, this.unity, this.qtd_dots, this.precision) 
+        this.obj_drawer = new ObjectDrawer(this.ctx, this.unity, this.qtd_dots, this.sum_precision, this.curves_precision) 
         this.configPlane()
     }
     

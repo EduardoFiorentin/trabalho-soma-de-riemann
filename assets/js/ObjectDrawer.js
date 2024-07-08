@@ -7,11 +7,12 @@ function calcularDistancia(xAntigo, yAntigo, xAtual, yAtual) {
 // objeto usado para fazer desenhos no gráfico  
 class ObjectDrawer {
 
-    constructor(ctx, unity, qtd_dots, precision){
+    constructor(ctx, unity, qtd_dots, sum_precision, curves_precision){
         this.ctx = ctx
         this.unity = unity
         this.qtd_dots = qtd_dots
-        this.precision = precision
+        this.sum_precision = sum_precision
+        this.curves_precision = curves_precision
     }
 
     // desenha retângulo no gráfico
@@ -140,7 +141,7 @@ class ObjectDrawer {
         let last_y = -start_y
         let dist = 0
 
-        for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=this.precision) {
+        for (var x = -this.qtd_dots; x <= this.qtd_dots; x+=this.sum_precision) {
             let y = eval(equation.replace(/x/ig, x))
             
             dist = calcularDistancia(last_x, -last_y, x, -y)
@@ -165,7 +166,7 @@ class ObjectDrawer {
     plotLevelCurves(equation, color, level) {
         var z;
         for (var y = -this.qtd_dots; y <= this.qtd_dots; y += 0.15) {
-            for (var x = -this.qtd_dots; x <= this.qtd_dots; x += this.precision) {
+            for (var x = -this.qtd_dots; x <= this.qtd_dots; x += this.curves_precision) {
                 // console.log("a")
                 z = eval(equation.replace(/x/ig, x).replace(/y/gi, y))
                 // console.log(Math.floor(z*1000) )
@@ -178,7 +179,7 @@ class ObjectDrawer {
 
     // plota a função desenhando pontos 
     plotEquationByDots(equation, color) {
-        for (var y = -this.qtd_dots; x <= this.qtd_dots; x += this.precision) {
+        for (var y = -this.qtd_dots; x <= this.qtd_dots; x += this.sum_precision) {
             this.drawDot(x, eval(equation.replace(/x/ig, x)), 1, color)
         }
     }

@@ -2,52 +2,55 @@
 // substitui a notação simplificada das funções pela estrutura executável de código JS
 function formatEquations(equation) {
 
-    equation = equation.replace(/([1-9])([sen])/g, "$1*$2")
-    equation = equation.replace(/([1-9])([cos])/g, "$1*$2")
-    equation = equation.replace(/([1-9])([tg])/g, "$1*$2")
+    equation = equation
+    .replace(/([1-9])([sen])/g, "$1*$2")
+    .replace(/([1-9])([cos])/g, "$1*$2")
+    .replace(/([1-9])([tg])/g, "$1*$2")
 
     // sen
-    equation = equation.replace(/sen\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sin($1)")
+    .replace(/sen\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sin($1)")
     
     // cos
-    equation = equation.replace(/cos\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cos($1)")
+    .replace(/cos\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cos($1)")
     
     // tg 
-    equation = equation.replace(/tg\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.tan($1)")
+    .replace(/tg\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.tan($1)")
     
     // senh
-    equation = equation.replace(/senh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sinh($1)")
+    .replace(/senh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sinh($1)")
     
     // cosh
-    equation = equation.replace(/cosh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cosh($1)")
+    .replace(/cosh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cosh($1)")
     
     //tgh
-    equation = equation.replace(/tgh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.tanh($1)")
+    .replace(/tgh\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.tanh($1)")
    
     // ln
-    equation = equation.replace(/ln\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log($1)")
+    .replace(/ln\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log($1)")
 
     // log na base 2
-    equation = equation.replace(/log2\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log2($1)")
+    .replace(/log2\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log2($1)")
     
     // log na base 10
-    equation = equation.replace(/log10\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log10($1)")
+    .replace(/log10\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.log10($1)")
     
     
     // raiz quadrada 
-    equation = equation.replace(/raiz2\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sqrt($1)")
+    .replace(/raiz2\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.sqrt($1)")
     
     // raiz cubica
-    equation = equation.replace(/raiz3\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cbrt($1)")
+    .replace(/raiz3\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.cbrt($1)")
     
     // abs
-    equation = equation.replace(/mod\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.abs($1)")
+    .replace(/mod\(([A-Za-z1-9\*\+\-\/\s]+)\)/g, "Math.abs($1)")
 
-    equation = equation.replace(/(\d)x/g, "$1*x")
+    .replace(/(\d)x/g, "$1*x")
+    .replace(/(\d)y/g, "$1*y")
 
-    equation = equation.replace(/(x)\*\*/g, "($1)**")
+    .replace(/(x)\*\*/g, "($1)**")
+    .replace(/(y)\*\*/g, "($1)**")
     
-    equation = equation.replace(/-/g, "-1 * ")
+    .replace(/-/g, "-1 * ")
 
 
     return equation

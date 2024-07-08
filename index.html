@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/reset.css">
-    <!-- <link rel="stylesheet" href="assets/css/base_canvas.css"> -->
     <link rel="stylesheet" href="assets/css/graphics.css">
     <link rel="stylesheet" href="assets/css/interface.css">
     <script type="application/javascript" src="assets/js/ObjectDrawer.js"></script>
@@ -36,7 +35,7 @@
                 <div id="riemann_sum-container">
                     <div class="equation__container">
                         <p class="equation_text">Equação: </p>
-                        <input type="text" name="" id="equation" class="equation__input" value="(x)**2 + (y)**2">
+                        <input type="text" name="" id="equation__sum" class="equation__input" value="(x)**2 + (y)**2">
                     </div>
                     <div class="equation__container">
                         <p class="equation_text">Limite Inferior: </p>
@@ -58,56 +57,70 @@
                             <option value="direita">Direita</option>
                         </select>
                     </div>
+                    <div class="results riemann_sum-container">
+                        <h2 class="results__title">Resultados</h2>
+                        <div class="result__container">
+                            <p class="result">Soma de Riemann: </p>
+                            <p class="input__sum-result" id="sum_response"></p>
+                        </div>
+                    </div>
+                    <div class="equation__button-container">
+                        <button class="equation__button" onclick="draw()" id="calculate__button"><p>Calcular</p></button>
+                    </div>
                 </div>
                 <div id="level_curves-container">
                     <div class="equation__container">
                         <p class="equation_text">Equação: </p>
-                        <input type="text" name="" id="equation" class="equation__input" value="(x)**2 - (y)**2">
+                        <input type="text" name="" id="equation__curves" class="equation__input" value="(x)**2 - (y)**2">
                     </div>
                     <div class="equation__container">
                         <p class="equation_text">Níveis: </p>
                         <div class="equation__levels">
                             <div class="equation__level">
                                 <input type="checkbox" name="" id="-3">
-                                <label for="-3">-3</label>
+                                <label for="-3" class="equation__level-value">-3</label>
+                                <div class="equation__level_-3 equation__level-index"></div>
                             </div>
                             <div class="equation__level">
                                 <input type="checkbox" name="" id="-2">
-                                <label for="-2">-2</label>
+                                <label for="-2" class="equation__level-value">-2</label>
+                                <div class="equation__level_-2 equation__level-index"></div>
                             </div>
                             <div class="equation__level">
                                 <input type="checkbox" name="" id="-1">
-                                <label for="-1">-1</label>
+                                <label for="-1" class="equation__level-value">-1</label>
+                                <div class="equation__level_-1 equation__level-index"></div>
                             </div>
                             <div class="equation__level">
                                 <input type="checkbox" name="" id="0" checked>
-                                <label for="0">0</label>
+                                <label for="0" class="equation__level-value">0</label>
+                                <div class="equation__level_0 equation__level-index"></div>
                             </div>
                             <div class="equation__level">
                                 <input type="checkbox" name="" id="1" checked>
-                                <label for="1">1</label>
+                                <label for="1" class="equation__level-value">1</label>
+                                <div class="equation__level_1 equation__level-index"></div>
                             </div>
                             <div class="equation__level">
                                 <input type="checkbox" name="" id="2" checked>
-                                <label for="2">2</label>
+                                <label for="2" class="equation__level-value">2</label>
+                                <div class="equation__level_2 equation__level-index"></div>
                             </div>
                             <div class="equation__level">
-                                <input type="checkbox" name="" id="3">
-                                <label for="3">3</label>
+                                <input type="checkbox" name="" id="3" class="equation__level-input">
+                                <label for="3" class="equation__level-value">3</label>
+                                <div class="equation__level_3 equation__level-index"></div>
                             </div>
+                        </div>
+                        <div class="equation__button-container">
+                            <button class="equation__button" onclick="draw()" id="calculate__button"><p>Calcular</p></button>
                         </div>
                     </div>
                 </div>
-                <button class="equation__button" onclick="draw()" id="calculate__button"><p>Calcular</p></button>
+                
             </div>
 
-            <div class="results riemann_sum-container">
-                <h2 class="results__title">Resultados</h2>
-                <div class="result__container">
-                    <p class="result">Soma de Riemann: </p>
-                    <p class="input__sum-result" id="sum_response"></p>
-                </div>
-            </div>
+           
         </div>
     </div>
 
