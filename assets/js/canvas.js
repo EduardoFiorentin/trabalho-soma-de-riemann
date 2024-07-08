@@ -101,7 +101,7 @@ class Plane {
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
         // this.precision = 0.021                                       // precisão para curvas de nível
-        this.precision = 0.0005                                      // precisão para funções de uma variavel
+        this.precision = 0.0003                                      // precisão para funções de uma variavel
         // this.precision = 0.001                                            // precisão para testes 
         
         this.obj_drawer = new ObjectDrawer(this.ctx, this.unity, this.qtd_dots, this.precision) 

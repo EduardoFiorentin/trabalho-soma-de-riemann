@@ -170,7 +170,7 @@ class ObjectDrawer {
                 z = eval(equation.replace(/x/ig, x).replace(/y/gi, y))
                 // console.log(Math.floor(z*1000) )
                 if (Math.round(z*100) === level*100) {
-                    this.drawDot(x, y, 1, color)
+                    this.drawDot(x, y, 3, color)
                 }
             }
         }
