@@ -7,6 +7,9 @@
     box-sizing: content-box;
     margin: 0;
 }
+.loading {
+    cursor: progress;
+}
 .interface {
     width: 30%;
     display: flex;
@@ -19,6 +22,10 @@
     margin-bottom: 15px;
     font-size: 3rem;
 }
+.mode__selector-container {
+    padding-bottom: 30px;
+}
+
 .equation {
     width: 100%;
     display: flex;
@@ -33,10 +40,18 @@
 .equation__container {
     margin-bottom: 10px;
 }
+.equation__button-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
 .equation__button {
     width: 200px;
     padding: 10px;
     cursor: pointer;
+    margin-top: 30px;
+    
 }
 .equation__select {
     width: 255px;
@@ -47,11 +62,9 @@
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    margin-left: 30px;
 }
 .results__title {
     font-size: 2rem;
-    text-align: center;
 }
 .result__container {
     display: flex;
@@ -61,22 +74,62 @@
 }
 .input__sum-result {
     margin-left: 10px;
-    
 }
+
+.hide__container {
+    display: none;
+}
+.equation__level {
+    display: flex;
+}
+.equation__level-value {
+    width: 20px;
+}
+.equation__level-index {
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 20px;
+    height: 15px;
+    align-self: center;
+}
+
+.equation__level_-3     { background-color: violet; }
+.equation__level_-2     { background-color: brown ; }
+.equation__level_-1     { background-color: gray ; }
+.equation__level_0      { background-color: green ; }
+.equation__level_1      { background-color: red ; }
+.equation__level_2      { background-color: purple ; }
+.equation__level_3      { background-color: blue ; }
+
 
 @media screen and (max-width: 1040px) {
     .equation {
         width: 300px;
+        margin-left: 30px;
+        display: flex;
+        justify-content: center;
+    }
+    .equation_text {
+        width: 150px;
+    }
+    .equation__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .interface__title {
         font-size: 2rem;
+    }
+    .riemann_sum-container {
+        display: flex;
+        justify-content: center;
     }
     .results {
         width: 300px;
     }
     .results__title {
-        font-size: 1rem;
-        text-align: left;
+        font-size: 1.5rem;
+        text-align: center;
     }
     .result {
         font-size: 1rem;
@@ -106,10 +159,6 @@
     .interface {
         align-items: center;
     }
-
-}
-
-@media screen and (max-width: 425px) {
     .equation__input {
         width: 250px;
         font-size: 1.5rem;
@@ -120,4 +169,3 @@
     }
 
 }
-/* @media screen and (max-width: 1040px) { */
