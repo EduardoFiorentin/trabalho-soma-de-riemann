@@ -109,7 +109,7 @@ class Plane {
         this.unity = 80                                                 // quantos pixels equivalem a uma unidade no gráfico
 
         this.qtd_dots = Math.floor(this.size[0] / 2 / this.unity)       // largura do gráfico na unidade de medida padrão 
-        this.curves_precision = 0.0021                                       // precisão para curvas de nível
+        this.curves_precision = 0.0011                                       // precisão para curvas de nível
         this.sum_precision = 0.0003                                      // precisão para funções de uma variavel
         // this.precision = 0.001                                            // precisão para testes 
         
