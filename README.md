@@ -9,18 +9,6 @@ Este projeto foi desenvolvido como um trabalho para a disciplina de Cálculo 2 d
 
 As funções são passadas como parâmetro, respeitando a hierarquia das operações matemáticas. A interface permite que o usuário visualize os gráficos diretamente no navegador.
 
-## Índice
-
-- [Como Usar](#como-usar)
-- [Exemplos de Funções - Soma de Riemann](#exemplos-de-funções)
-  - [Polinomiais](###polinomiais)
-  - [Exponenciais](###exponenciais)
-  - [Logarítmicas](###logarítmicas)
-  - [Trigonométricas](###trigonométricas)
-- [Curvas de Nível](##Curvas de Nível)
-  - [Níveis](### Níveis Disponíveis) 
-  - [Exemplos](### Exemplos de Funções ) 
-
 ## Como Usar
 
 Para utilizar o programa, siga os seguintes passos:
@@ -41,8 +29,11 @@ A seguir há alguns exemplos de funções que podem ser usadas no projeto. Certi
 
 ### Polinomiais 
 x\*\*2 + 2\*x + 2
+
 -x\*\*2 - 2*x - 2
+
 -x**3 + 2
+
 mod(x) - módulo de x
 
 ### Exponenciais
