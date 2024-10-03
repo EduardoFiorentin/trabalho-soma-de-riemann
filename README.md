@@ -83,10 +83,10 @@ Aqui estão alguns exemplos de funções de duas variáveis que podem ser usadas
 
 ### Exemplos de Funções 
 1.  x\*\*2 + y\*\*2
-2.  
-3.  2\*\*(-x\*\*2 - y\*\*2)
-4.  
-5.  (x)\*\*2 - (y)\*\*2
+
+2.  2\*\*(-x\*\*2 - y\*\*2)
+
+3.  (x)\*\*2 - (y)\*\*2
 
 
 # Acesso ao Projeto
