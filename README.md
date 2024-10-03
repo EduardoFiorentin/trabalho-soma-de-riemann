@@ -38,23 +38,35 @@ mod(x) - módulo de x
 
 ### Exponenciais
 2\*\*x
+
 2\*\*(-x)
+
 2\*\*(2\*x)
+
 -2\*\*(2\*x)
+
 x\*\*4 - 3\*x\*\*3
+
 3 \* 2\*\*(-x)
 
 ### Logarítmicas 
 ln(x)    # logaritmo natural (base e)
+
 log2(x)  # logaritmo base 2
+
 log10(x) # logaritmo base 10
 
 ## Trigonométricas
 sen(x)    # seno
+
 cos(x)    # cosseno
+
 tg(x)     # tangente
+
 senh(x)   # seno hiperbólico
+
 cosh(x)   # cosseno hiperbólico
+
 tgh(x)    # tangente hiperbólica
 
 ## Curvas de Nível
@@ -71,8 +83,10 @@ Aqui estão alguns exemplos de funções de duas variáveis que podem ser usadas
 
 ### Exemplos de Funções 
 1.  x\*\*2 + y\*\*2
-2.  2\*\*(-x\*\*2 - y\*\*2)
-3.  (x)\*\*2 - (y)\*\*2
+2.  
+3.  2\*\*(-x\*\*2 - y\*\*2)
+4.  
+5.  (x)\*\*2 - (y)\*\*2
 
 
 # Acesso ao Projeto
