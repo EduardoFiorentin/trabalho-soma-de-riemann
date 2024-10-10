@@ -22,7 +22,6 @@ Para utilizar o programa, siga os seguintes passos:
 
 3. O gráfico correspondente será gerado e exibido na tela.
 
-Caso deseje clonar o projeto e rodar localmente, execute os seguintes comandos:
 
 ## Exemplos de Funções - Soma de Riemman
 A seguir há alguns exemplos de funções que podem ser usadas no projeto. Certifique-se de respeitar a hierarquia de operações utilizando parênteses, quando necessário.
